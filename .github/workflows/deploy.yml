@@ -8,6 +8,8 @@ on:
 # Grants the workflow permissions to deploy to GitHub Pages
 permissions:
   contents: write
+  pages: read
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -37,7 +39,7 @@ jobs:
 
       # 5. Compile the web version into a release build
       - name: Build Flutter Web
-        run: flutter build web --release --base-href /simple_flutter_app/
+        run: flutter build web --release --base-href "/simple_flutter_app/"
 
       # 6. Deploy the compiled web artifacts to the gh-pages branch
       - name: Deploy to GitHub Pages
